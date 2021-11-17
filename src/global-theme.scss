@@ -1,0 +1,73 @@
+// Import the IgniteUI themes library first
+@import "~igniteui-angular/lib/core/styles/themes/index";
+
+$primary-color: #b71c1c;
+$secondary-color: #003086;
+
+$my-color-palette: igx-palette(
+  $primary: $primary-color,
+  $secondary: $secondary-color
+);
+
+// Using Twitter Night Mode Colors for Common Elements
+// Easier on the Eyes
+$dark-nav-drawer: igx-navdrawer-theme(
+  $background: #243447,
+  $item-icon-color: #1da1f2,
+  $item-text-color: #f9f8f8
+);
+
+$dark-drop-down: igx-drop-down-theme(
+  $background-color: #243447
+);
+
+$dark-calendar: igx-calendar-theme(
+  $content-background: #243447,
+  $header-background: #1da1f2,
+  $header-text-color: #f9f8f8,
+  $year-current-text-color: #f9f8f8
+);
+
+$light-input: igx-input-group-theme(
+  $idle-text-color: #f9f8f8,
+  $filled-text-color: #f9f8f8,
+  $focused-text-color: #f9f8f8,
+  $disabled-text-color: #f9f8f8,
+  $idle-bottom-line-color: gray,
+  $hover-bottom-line-color: gray,
+  $focused-bottom-line-color: gray,
+  $interim-bottom-line-color: gray,
+  $disabled-bottom-line-color: gray
+);
+
+$dark-grid-toolbar: igx-grid-toolbar-theme(
+  $background-color: #243447,
+  $title-text-color: #f9f8f8,
+  $dropdown-background: #243447
+
+);
+
+$dark-grid: igx-grid-theme(
+  $content-background: 	#76c5f5,
+  $cell-selected-background: #76c5f5,
+  $header-background: #0084b4
+);
+
+$dark-combo: igx-combo-theme(
+  $palette: $my-color-palette
+);
+
+
+
+// IMPORTANT: Make sure you always include igx-core first!
+@include igx-core();
+// Pass the color palette we generated to the igx-theme mixin
+@include igx-theme($my-color-palette);
+@include igx-navdrawer($dark-nav-drawer);
+@include igx-drop-down($dark-drop-down);
+@include igx-date-picker($dark-calendar);
+@include igx-input-group($light-input);
+@include igx-grid-toolbar($dark-grid-toolbar);
+@include igx-grid($dark-grid);
+@include igx-combo($dark-combo);
+
