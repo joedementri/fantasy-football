@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterModule, RouterStateSnapshot, Routes } from '@angular/router';
+import { DraftToolComponent } from './draft-tool/draft-tool.component';
 import { HomeComponent } from './home/home.component';
+import { PlayerToolComponent } from './player-tool/player-tool.component';
 import { StartComponent } from './start/start.component';
+import { TeamToolComponent } from './team-tool/team-tool.component';
 
 const routes: Routes = [
   {
@@ -9,8 +12,9 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: 'start', component: StartComponent },
-      { path: 'player-tool', component: StartComponent },
-      { path: 'team-tool', component: StartComponent },
+      { path: 'player-tool', component: PlayerToolComponent },
+      { path: 'team-tool', component: TeamToolComponent },
+      { path: 'draft-tool', component: DraftToolComponent },
       { path: '', redirectTo: 'start', pathMatch: 'full' }
     ]
   },

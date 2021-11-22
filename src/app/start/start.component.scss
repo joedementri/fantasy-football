@@ -1,0 +1,27 @@
+@import "~igniteui-angular/lib/core/styles/themes/index";
+
+.card-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+$dark-card: igx-card-theme(
+  $background: #76c5f5,
+  $header-text-color: #f9f8f8,
+  $subtitle-text-color: #f9f8f8,
+  $content-text-color: #f9f8f8,
+  $actions-text-color: #c51f5d
+);
+
+$dark-button: igx-button-theme(
+);
+
+:host ::ng-deep {
+    @include igx-button($dark-button);
+    @include igx-card($dark-card);
+}

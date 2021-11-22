@@ -42,6 +42,7 @@ main {
     display: grid !important;
     grid-template-rows: 1fr auto;
     overflow: auto;
+    padding: 20px;
 }
 
 .footer-container {

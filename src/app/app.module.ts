@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule, HammerModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
+  IgxButtonModule,
+  IgxCardModule,
   IgxDropDownModule,
   IgxIconModule,
   IgxNavigationDrawerModule,
@@ -16,6 +18,8 @@ import { ScreenResizeEventService } from './_services/screen-resize-event.servic
 import { StartComponent } from './start/start.component';
 import { PlayerToolComponent } from './player-tool/player-tool.component';
 import { TeamToolComponent } from './team-tool/team-tool.component';
+import { DraftToolComponent } from './draft-tool/draft-tool.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,18 +27,22 @@ import { TeamToolComponent } from './team-tool/team-tool.component';
     HomeComponent,
     StartComponent,
     PlayerToolComponent,
-    TeamToolComponent
+    TeamToolComponent,
+    DraftToolComponent
   ],
   imports: [
     BrowserModule,
     HammerModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     IgxNavigationDrawerModule,
     IgxSnackbarModule,
     IgxDropDownModule,
     IgxIconModule,
     IgxRippleModule,
+    IgxButtonModule,
+    IgxCardModule
   ],
   providers: [
     GlobalMessageService,

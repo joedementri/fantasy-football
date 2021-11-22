@@ -49,6 +49,11 @@ export class HomeComponent implements OnInit {
       link: '/home/team-tool',
       icon: 'groups',
       name: 'Team Analyzer'
+    },
+    {
+      link: '/home/draft-tool',
+      icon: 'view_list',
+      name: 'Draft Analyzer'
     }
   ];
 

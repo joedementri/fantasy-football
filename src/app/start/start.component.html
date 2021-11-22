@@ -1,1 +1,22 @@
-<p>start works!</p>
+<div class="sample-column card-wrapper card-container">
+    <igx-card *ngFor="let card of cards">
+        <igx-card-media height="180px">
+            <img [src]="card.imageUrl">
+        </igx-card-media>
+
+        <igx-card-header>
+            <h3 igxCardHeaderTitle>{{ card.title }}</h3>
+            <h5 igxCardHeaderSubtitle>{{ card.subtitle }}</h5>
+        </igx-card-header>
+
+        <igx-card-content>
+            <p>{{ card.content }}</p>
+        </igx-card-content>
+
+        <igx-card-actions>
+            <button igxButton="raised" igxRipple (click)="travelToPage(card)">VIEW
+            </button>
+        </igx-card-actions>
+
+    </igx-card>
+</div>

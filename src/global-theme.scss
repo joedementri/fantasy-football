@@ -57,6 +57,14 @@ $dark-combo: igx-combo-theme(
   $palette: $my-color-palette
 );
 
+$dark-card: igx-card-theme(
+  $palette: $my-color-palette,
+  $background: #76c5f5,
+  $header-text-color: #f9f8f8,
+  $subtitle-text-color: #f9f8f8,
+  $content-text-color: #76c5f5,
+);
+
 
 
 // IMPORTANT: Make sure you always include igx-core first!
@@ -70,4 +78,6 @@ $dark-combo: igx-combo-theme(
 @include igx-grid-toolbar($dark-grid-toolbar);
 @include igx-grid($dark-grid);
 @include igx-combo($dark-combo);
+@include igx-card($dark-card);
+
 
