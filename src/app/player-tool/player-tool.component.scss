@@ -1,0 +1,30 @@
+@import "~igniteui-angular/lib/core/styles/themes/index";
+
+.two-grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+.search-area {
+    margin-bottom: 20px;
+}
+
+$custom-input-group: igx-input-group-theme(
+  $filled-text-color: #f9f8f8,
+  $focused-text-color: #f9f8f8,
+  $idle-text-color: #f9f8f8,
+  $idle-bottom-line-color: #1da1f2,
+  $interim-bottom-line-color: #1da1f2,
+  $hover-bottom-line-color: #1da1f2,
+  $focused-secondary-color: #f9f8f8,
+  $border-color: #f9f8f8,
+);
+
+:host ::ng-deep {
+    @include igx-input-group($custom-input-group);
+}

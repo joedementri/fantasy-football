@@ -1,1 +1,28 @@
-<p>player-tool works!</p>
+<div class="full-width search-fans">
+    <div class="two-grid search-area">
+        <igx-input-group class="autocomplete">
+            <label igxLabel for="players">Search for a player...</label>
+            <input #playerInput igxInput name="players" type="text"
+            [igxAutocomplete]="playersPanel"
+            [(ngModel)]="playerSelected"/>
+        </igx-input-group>
+        <igx-drop-down #playersPanel maxHeight="300px" (selectionChanging)="onSelection($event)">
+            <igx-drop-down-item *ngFor="let p of players | startsWith:playerSelected" [id]="p.player_id" [value]="p.full_name">
+                {{ p.full_name }} - {{ p.team }}
+            </igx-drop-down-item>
+        </igx-drop-down>
+        <button igxButton class="" (click)="find_player()">SEARCH</button>
+    </div>
+    <hr>
+    <!--
+    <mat-form-field class="full-width">
+      <input type="text" matInput placeholder="Search Fans" [formControl]="fanSearch" [matAutocomplete]="auto">
+      <span matPrefix><igx-icon>search</igx-icon>&nbsp;&nbsp;</span>
+    </mat-form-field>
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="fanSelected($event)">
+      <mat-option *ngFor="let fan of filteredFans | async" [value]="fan">
+        {{ (fan.id || fan.parentId ) + ': ' + fan.firstName + ' ' + fan.lastName }}
+      </mat-option>
+    </mat-autocomplete>
+    -->
+  </div>
