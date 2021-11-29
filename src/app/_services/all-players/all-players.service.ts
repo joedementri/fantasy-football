@@ -26,7 +26,7 @@ export class AllPlayersService {
     } else {
       urlToJson = '../../../assets/sleeper.json'
     }
-    return this.ds.get(urlToJson);
+    return this.ds.get('https://joedementri.github.io/fantasy-football/assets/sleeper.json');
   }
 
 }
