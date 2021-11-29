@@ -22,9 +22,9 @@ export class AllPlayersService {
   public async getPlayersData(): Promise<any[]> {
     let url = ''
     if (environment.production) {
-      url = '../../../fantasy-football/assets/sleeper.json'
+      url = 'https://joedementri.github.io/fantasy-football/assets/sleeper.json'
     } else {
-      url =  '../../../assets/sleeper.json'
+      url =  'https://joedementri.github.io/fantasy-football/assets/sleeper.json'
     }
     return this.ds.get(url);
   }
