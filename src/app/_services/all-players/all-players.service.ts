@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { DatabaseService } from '../database/database.service';
 
 @Injectable({
@@ -19,7 +20,13 @@ export class AllPlayersService {
   }
 
   public async getPlayersData(): Promise<any[]> {
-    return this.ds.get('../../../assets/sleeper.json');
+    let urlToJson = '';
+    if (environment.production) {
+      urlToJson = 'https://joedementri.github.io/fantasy-football/assets/sleeper.json'
+    } else {
+      urlToJson = '../../../assets/sleeper.json'
+    }
+    return this.ds.get(urlToJson);
   }
 
 }
