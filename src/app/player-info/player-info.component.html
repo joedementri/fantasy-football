@@ -1,0 +1,105 @@
+<div *ngIf="player" class="player-news-modal">
+    <div class="player-card-wrapper">
+        <div class="player-card">
+            <div class="details-panel">
+                <div class="player-card-header-container">
+                    <div class="player-card-header">
+                        <!--Make team color dynamic-->
+                        <div class="player-card-header-gradient" [style.background]="bgColor"></div>
+                        <!--Make team image dynamic-->
+                        <img src="{{teamLogo}}" class="team-bg-image" alt="team-bg">
+                        <div class="player-card-content-container">
+                            <div class="player-image-container">
+                                <!--Make player image dynamic-->
+                                <img src="https://sleepercdn.com/content/nfl/players/{{player.player_id}}.jpg" class="player-image"/>
+                                <!--<object data="https://sleepercdn.com/content/nfl/players/7694.jpg" class="player-image" type="image/png"></object>-->
+                                <div class="player-position-container">
+                                    <div class="player-card-player-position">
+                                        <div class="position" [style.background]="posColor">{{player.position}}</div>
+                                        <div class="team">{{teamName}} #{{player.number}}</div>
+                                        <div class="triangle"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="player-info-container">
+                                <div class="player-name-container">
+                                    <div class="player-name">{{player.full_name}}</div>
+                                </div>
+                                <div class="profile-items-container">
+                                    <div class="profile-item-wrapper">
+                                        <div class="profile-item">
+                                            <div class="profile-item-label">AGE</div>
+                                            <div class="profile-item-value">{{player.age}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="profile-item-wrapper">
+                                        <div class="profile-item-divider"></div>
+                                        <div class="profile-item">
+                                            <div class="profile-item-label">HEIGHT</div>
+                                            <div class="profile-item-value">{{player.height}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="profile-item-wrapper">
+                                        <div class="profile-item-divider"></div>
+                                        <div class="profile-item">
+                                            <div class="profile-item-label">WEIGHT</div>
+                                            <div class="profile-item-value">{{player.weight}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="profile-item-wrapper">
+                                        <div class="profile-item-divider"></div>
+                                        <div class="profile-item">
+                                            <div class="profile-item-label">EXP</div>
+                                            <div class="profile-item-value">{{player.years_exp}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="profile-item-wrapper">
+                                        <div class="profile-item-divider"></div>
+                                        <div class="profile-item">
+                                            <div class="profile-item-label">COLLEGE</div>
+                                            <div class="profile-item-value">{{player.college}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="player-ranking-container">
+                                    <div class="profile-item-label">PLAYER RANKINGS</div>
+                                    <div class="player-ranking-row">
+                                        <div class="rank-item">
+                                            <div class="rank-value">#0</div>
+                                            <div class="rank-label">{{player.position}} (STD)</div>
+                                        </div>
+                                        <div class="rank-item">
+                                            <div class="rank-value">#0</div>
+                                            <div class="rank-label">{{player.position}} (PPR)</div>
+                                        </div>
+                                        <div class="rank-item">
+                                            <div class="rank-value">#0</div>
+                                            <div class="rank-label">OVERALL (STD)</div>
+                                        </div>
+                                        <div class="rank-item">
+                                            <div class="rank-value">#0</div>
+                                            <div class="rank-label">OVERALL (PPR)</div>
+                                        </div>
+                                        <div class="rank-item">
+                                            <div class="rank-value">0%</div>
+                                            <div class="rank-label">ROSTERED</div>
+                                        </div>
+                                        <div class="rank-item">
+                                            <div class="rank-value">0%</div>
+                                            <div class="rank-label">STARTED</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="player.injury_status==='Questionable' || player.injury_status==='Doubtful'" class="injury-status" style="background: rgb(255, 90, 34);">{{ player.injury_status | uppercase }}</div>
+                            <div *ngIf="player.injury_status==='IR' || player.injury_status==='Out' || player.injury_status==='PUP' || player.injury_status==='DNR' || player.injury_status==='COV' || player.injury_status==='Sus'" class="injury-status" style="background: rgb(235, 68, 111);">{{ player.injury_status | uppercase }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="player-details-panel">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

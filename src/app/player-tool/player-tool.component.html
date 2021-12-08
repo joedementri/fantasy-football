@@ -11,7 +11,7 @@
                 {{ p.full_name }} - {{ p.team }}
             </igx-drop-down-item>
         </igx-drop-down>
-        <button igxButton class="" (click)="find_player()">SEARCH</button>
+        <button igxButton class="" (click)="find_player()">GET DATA</button>
     </div>
     <hr>
     <!--
@@ -25,4 +25,7 @@
       </mat-option>
     </mat-autocomplete>
     -->
-  </div>
+</div>
+<div class="player-info-area">
+    <app-player-info></app-player-info>
+</div>

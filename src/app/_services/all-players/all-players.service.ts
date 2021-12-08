@@ -7,8 +7,6 @@ import { DatabaseService } from '../database/database.service';
 })
 export class AllPlayersService {
 
-  base_url = 'https://api.sleeper.app/'
-
   constructor(public ds: DatabaseService) { }
 
   getCachedPlayersData(): any {
@@ -22,9 +20,11 @@ export class AllPlayersService {
   public async getPlayersData(): Promise<any[]> {
     let url = ''
     if (environment.production) {
+      console.log('prod url used')
       url = 'https://joedementri.github.io/fantasy-football/assets/sleeper.json'
     } else {
-      url =  'https://joedementri.github.io/fantasy-football/assets/sleeper.json'
+      console.log('local url used')
+      url =  '../../../assets/sleeper.json'
     }
     return this.ds.get(url);
   }

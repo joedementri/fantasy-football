@@ -1,7 +1,9 @@
 import { isNgTemplate } from '@angular/compiler';
 import { Component, OnInit, Pipe, PipeTransform, ViewChild } from '@angular/core';
 import { IgxDropDownComponent, IgxInputGroupComponent, ISelectionEventArgs } from 'igniteui-angular';
+import { PlayerInfoComponent } from '../player-info/player-info.component';
 import { AllPlayersService } from '../_services/all-players/all-players.service';
+import { SleeperService } from '../_services/sleeper/sleeper.service';
 
 export interface IPlayer {
   name: string;
@@ -15,12 +17,18 @@ export interface IPlayer {
 })
 export class PlayerToolComponent implements OnInit {
 
+  @ViewChild(PlayerInfoComponent)
+  playerInfoTool!: PlayerInfoComponent;
+
   public players: any[];
   public playerSelected: any;
 
   selectedId = ''
 
-  constructor(public aps: AllPlayersService) {
+  constructor(
+    public aps: AllPlayersService,
+    public ss: SleeperService
+  ) {
     this.players = [];
   }
 
@@ -41,10 +49,16 @@ export class PlayerToolComponent implements OnInit {
         }
       }
     });
+    this.ss.getLeagueStatus().then(res => {
+      console.log(res);
+    })
   }
 
   find_player(): void {
-    console.log(this.selectedId);
+    if (this.selectedId) {
+      console.log(this.selectedId);
+      this.playerInfoTool.loadPlayer(this.players.find(elem => elem.player_id === this.selectedId))
+    }
   }
 
   onSelection(event: ISelectionEventArgs): void {
@@ -56,6 +70,6 @@ export class PlayerToolComponent implements OnInit {
 @Pipe({ name: 'startsWith' })
 export class AutocompletePipeStartsWith implements PipeTransform {
     public transform(collection: any[], term = '') {
-      return collection.filter((item) => item.full_name.toLowerCase().includes(term.toString().toLowerCase()));
+      return collection.filter((item) => item.full_name.toLowerCase().includes(term.toString().toLowerCase())).slice(0,10);
     }
 }

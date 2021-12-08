@@ -25,6 +25,8 @@ import { FormsModule } from '@angular/forms';
 import { DatabaseService } from './_services/database/database.service';
 import { AllPlayersService } from './_services/all-players/all-players.service';
 import { HttpClientModule } from '@angular/common/http';
+import { PlayerInfoComponent } from './player-info/player-info.component';
+import { SleeperService } from './_services/sleeper/sleeper.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { HttpClientModule } from '@angular/common/http';
     PlayerToolComponent,
     AutocompletePipeStartsWith,
     TeamToolComponent,
-    DraftToolComponent
+    DraftToolComponent,
+    PlayerInfoComponent
   ],
   imports: [
     HttpClientModule,
@@ -58,6 +61,7 @@ import { HttpClientModule } from '@angular/common/http';
     ScreenResizeEventService,
     DatabaseService,
     AllPlayersService,
+    SleeperService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,17 @@
 declare namespace Fantasy {
+
+    export interface ILeagueStatus {
+        display_week: number
+        league_create_season: string
+        league_season: string
+        leg: number
+        previous_season: string
+        season: string
+        season_start_date: string
+        season_type: string
+        week: number
+    }
+
     export interface IPlayerMetadata {
         age: number,
         // birth_city: null
@@ -57,4 +70,7 @@ declare namespace Fantasy {
         // sport: string,
         team: string,
     }
+    
 }
+
+export = Fantasy
